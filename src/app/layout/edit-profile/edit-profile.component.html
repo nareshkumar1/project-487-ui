@@ -1,0 +1,58 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Edit Information'" [icon]="'fa-edit'"></app-page-header>
+    <form role='form'>
+        <div class='row'>
+            <div class='col-lg-5'>
+                <div class='card card-default'>
+                    <div class='card-header'>
+                        <i class='fa fa-edit fa-fw'></i>Personal Details
+                    </div>
+                    <div class="form-group has-success col-lg-12">
+                        <input id='userid' type='text' value="{{userDetails?.userId}}" hidden>
+
+                        <label class="form-control-label" for="firstName">First Name</label>
+                        <input type="text" class="form-control form-control-success" id="firstName" placeholder="First Name" value="{{userDetails?.firstName}}" disabled="">
+
+                        <label class="form-control-label" for="lastname">Last Name</label>
+                        <input type="text" class="form-control form-control-success" id="lastname" placeholder="Last Name" value="{{userDetails?.lastName}}" disabled="">
+
+                        <label class="form-control-label" for="username">User Name</label>
+                        <input type="text" class="form-control form-control-success" id="username" placeholder="Username" value="{{userDetails?.username}}" disabled="">
+
+                        <label class="form-control-label" for="email">Email</label>
+                        <input type="email" class="form-control form-control-success" id="email" placeholder="Email" value="{{userDetails?.email}}" disabled="">
+
+                        <label class="form-control-label" for="phone">Phone</label>
+                        <input type="text" class="form-control form-control-success" id="phone" placeholder="Phone" value="{{userDetails?.phone}}" disabled="">
+
+                        <label class="form-control-label" for="role">Role</label>
+                        <input type="text" class="form-control form-control-success" id="role" placeholder="Phone" value="{{userDetails?.role}}" disabled="">
+                    </div>
+                </div>
+            </div>
+
+            <div class='col-lg-5'>
+                <div class='card card-default mb-3'>
+                    <div class='card-header'>
+                        <i class='fa fa-edit fa-fw'></i>Professional Details
+                    </div>
+                    <div class="form-group has-success col-lg-12">
+                        <input id='userid1' type='text' hidden>
+
+                        <label class="form-control-label" for="employeeId">Employee Id</label>
+                        <input type="text" class="form-control form-control-success" id="employeeId" placeholder="Employee Id" value="{{userDetails?.employeeId}}" disabled="">
+
+                        <label class="form-control-label" for="joinigDate">Joining Date</label>
+                        <input type="text" class="form-control form-control-success" id="joinigDate" placeholder="JoinigDate" value="{{userDetails?.joiningDate}}" disabled="">
+
+                        <label class="form-control-label" for="department">Department</label>
+                        <input type="text" class="form-control form-control-success" id="department" placeholder="Department" value="{{userDetails?.department}}" disabled="">
+
+                        <label class="form-control-label" for="designation">Designation</label>
+                        <input type="text" class="form-control form-control-success" id="designation" placeholder="Designation" value="{{userDetails?.designation}}" disabled="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

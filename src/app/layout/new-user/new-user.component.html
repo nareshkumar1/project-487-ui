@@ -1,0 +1,82 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Add New User'" [icon]="'fa-edit'"></app-page-header>
+    <form role='form' (ngSubmit)="saveUserProfile()">
+        <div class='row'>
+            <div class='col-lg-5'>
+                <div class='card card-default'>
+                    <div class='card-header'>
+                        <i class='fa fa-edit fa-fw'></i>Personal Details
+                    </div>
+                    <div class="form-group has-success col-lg-12">
+                        <input name='userid' type='text' [(ngModel)]="data.userId" value='0' hidden>
+
+
+                        <label class="form-control-label" for="userFirstName">First Name</label>
+                        <input type="text" class="form-control form-control-success" [(ngModel)]="data.userFirstName" name="userFirstName" placeholder="First Name">
+
+                        <label class="form-control-label" for="userLastName">Last Name</label>
+                        <input type="text" class="form-control form-control-success" [(ngModel)]="data.userLastName" name="userLastName" placeholder="Last Name">
+
+                        <label class="form-control-label" for="username">User Name</label>
+                        <input type="text" class="form-control form-control-success" [(ngModel)]="data.username" name="username" placeholder="Username">
+
+                        <label class="form-control-label" for="password">Password </label>
+                        <input type="password" class="form-control form-control-success" [(ngModel)]="data.password" name="password" placeholder="Password">
+
+                        <label class="form-control-label" for="email">Email</label>
+                        <input type="email" class="form-control form-control-success" [(ngModel)]="data.email" name="email" placeholder="email@example.com">
+
+                        <label class="form-control-label" for="phone">Phone</label>
+                        <input type="text" class="form-control form-control-success" [(ngModel)]="data.phone" name="phone" placeholder="Phone">
+
+                        <label class="form-control-label" for="role">Role</label>
+                        <select name='role' [(ngModel)]="data.role" class='form-control'>
+                            <option selected="" value="">Select Role</option>
+                            <option>User</option>
+                            <option>Admin</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class='col-lg-5'>
+                <div class='card card-default mb-3'>
+                    <div class='card-header'>
+                        <i class='fa fa-edit fa-fw'></i>Professional Details
+                    </div>
+                    <div class="form-group has-success col-lg-12">
+                        <label class="form-control-label" for="employeeId">Employee Id</label>
+                        <input type="text" class="form-control form-control-success" name="employeeId" [(ngModel)]="data.employeeId" placeholder="Employee Id ">
+
+                        <label class="form-control-label " for="joinDate ">Joining Date</label>
+                        <div class="input-group datepicker-input ">
+                            <input class="form-control " placeholder="yyyy-mm-dd " name="joiningDate " [(ngModel)]="data.joiningDate" ngbDatepicker #d="ngbDatepicker">
+                            <button class="input-group-addon " (click)="d.toggle() " type="button ">
+                                        <span class="fa fa-calendar "></span>
+                                </button>
+                        </div>
+
+                        <label class="form-control-label " for="department ">Department</label>
+                        <select class="form-control form-control-success " [(ngModel)]="data.department" name="department" (change)="getDesignationsbyDepartment($event)">
+                                <option selected="" value="">Select Department</option>
+                            <option *ngFor="let dept of allDepartments" value={{dept.departmentId}} >
+                              {{dept.departmentName}}
+                          </option>
+                        </select>
+
+                        <label class="form-control-label " for="designation ">Designation</label>
+                        <select class="form-control form-control-success " [(ngModel)]="data.designation " name="designation ">
+                            <option selected="" value="">Select Designation</option>    
+                            <option *ngFor="let desig of allDesignations" value={{desig.designationId}}>
+                                    {{desig.designationName}}
+                                </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='col-lg-8'>
+            <input type="submit" value='Submit' class="btn btn-lg btn-success " style='margin-top: 10px;'>
+        </div>
+    </form>
+</div>
